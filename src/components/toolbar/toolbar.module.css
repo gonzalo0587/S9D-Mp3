@@ -1,0 +1,182 @@
+.toolbar {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+
+  padding: 0;
+  margin: 0;
+
+  background: transparent;
+  column-gap: 8px;
+}
+
+.toolbar__left {
+  min-width: 0;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+
+  position: relative;
+  overflow: visible;
+}
+
+.toolbar__center {
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.toolbar__right {
+  min-width: 0;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+
+  -webkit-app-region: no-drag;
+}
+
+.toolbar__logo {
+  height: 45px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+.toolbar__brand {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: #e5e7eb;
+
+  position: relative;
+  z-index: 1;
+}
+
+/* Botones */
+
+.toolbar__btn {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 6px;
+
+  background: transparent;
+  color: #d1d5db;
+
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.toolbar__btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.toolbar__btn--close:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+/* Movimiento nombre canción toolbar */
+
+.toolbar__trackViewport {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+  overflow: hidden;
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 1) 6%,
+    rgba(0, 0, 0, 1) 94%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 1) 6%,
+    rgba(0, 0, 0, 1) 94%,
+    transparent 100%
+  );
+}
+
+.toolbar__trackViewport::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(88, 161, 255, 0.04) 25%,
+    rgba(177, 107, 255, 0.05) 50%,
+    rgba(88, 161, 255, 0.04) 75%,
+    transparent 100%
+  );
+}
+
+.toolbar__trackMarquee {
+  position: absolute;
+  left: 0;
+  top: 50%;
+
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 72px;
+
+  min-width: max-content;
+  will-change: transform;
+
+  animation: toolbar-marquee-ltr 14s linear infinite;
+}
+
+.toolbar__track {
+  display: block;
+  flex-shrink: 0;
+  white-space: nowrap;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.02em;
+
+  color: #d7dcff;
+  text-shadow:
+    0 0 8px rgba(115, 154, 255, 0.22),
+    0 0 18px rgba(162, 76, 255, 0.14);
+}
+
+@keyframes toolbar-marquee-ltr {
+  0% {
+    transform: translateY(-50%) translateX(calc(-100% - 72px));
+  }
+  100% {
+    transform: translateY(-50%) translateX(0);
+  }
+}
