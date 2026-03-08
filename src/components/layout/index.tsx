@@ -1,5 +1,6 @@
 import styles from "./layout.module.css";
 import Toolbar from "../toolbar";
+import LibraryPanel from "../library-panel";
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -8,7 +9,7 @@ type LayoutProps = {
 export default function Layout({ children }: LayoutProps) {
   return (
     <div className={styles.layout}>
-      {/* Fila 0: Acá va la toolbar */}
+      {/* Fila 0: Toolbar */}
       <div data-layout-row="top">
         <Toolbar />
       </div>
@@ -17,6 +18,7 @@ export default function Layout({ children }: LayoutProps) {
       <div data-layout-row="bottom">
         <div data-layout-col="library">
           {/* Biblioteca */}
+          <LibraryPanel  />
         </div>
 
         <div data-layout-col="now-playing">

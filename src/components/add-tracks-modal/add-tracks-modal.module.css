@@ -1,0 +1,288 @@
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 28px;
+
+  background: rgba(2, 6, 16, 0.58);
+  backdrop-filter: blur(10px);
+}
+
+.modal {
+  width: min(860px, 100%);
+  max-height: min(82vh, 820px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 18px;
+
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+    rgba(8, 12, 24, 0.96);
+
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.5),
+    0 0 24px rgba(88, 122, 255, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.modalHeaderText {
+  min-width: 0;
+}
+
+.modalTitle {
+  margin: 0;
+  color: #f5f7ff;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.modalSubtitle {
+  margin: 6px 0 0;
+  color: #b8c0e8;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.closeButton {
+  width: 36px;
+  height: 36px;
+
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #d9def7;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.metaBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metaLabel {
+  color: #95a3d9;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.metaValue {
+  min-height: 42px;
+  padding: 10px 12px;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.03);
+
+  color: #edf1ff;
+  font-size: 13px;
+  line-height: 1.4;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.listWrapper {
+  min-height: 220px;
+  max-height: 420px;
+  overflow: auto;
+
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(4, 8, 18, 0.72);
+}
+
+.trackList {
+  display: flex;
+  flex-direction: column;
+}
+
+.trackRow {
+  min-height: 58px;
+  padding: 10px 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.trackRow:last-child {
+  border-bottom: none;
+}
+
+.trackMain {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.trackName {
+  color: #f4f7ff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trackPath {
+  color: #98a6db;
+  font-size: 12px;
+  line-height: 1.3;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trackExt {
+  flex-shrink: 0;
+  min-width: 58px;
+  height: 28px;
+  padding: 0 10px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+  border: 1px solid rgba(139, 171, 255, 0.18);
+  background: rgba(96, 132, 255, 0.1);
+
+  color: #dbe4ff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.emptyState {
+  min-height: 220px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #a8b4e8;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  padding: 24px;
+}
+
+.modalFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.secondaryButton,
+.primaryButton {
+  min-width: 140px;
+  height: 40px;
+  padding: 0 16px;
+
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.16s ease,
+    border-color 0.16s ease,
+    background 0.16s ease,
+    opacity 0.16s ease;
+}
+
+.secondaryButton {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: #e8edff;
+}
+
+.secondaryButton:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.primaryButton {
+  border: 1px solid rgba(110, 153, 255, 0.18);
+  background:
+    linear-gradient(180deg, rgba(95, 146, 255, 0.22), rgba(147, 88, 255, 0.16)),
+    rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(102, 129, 255, 0.12);
+}
+
+.primaryButton:hover {
+  transform: translateY(-1px);
+}
+
+.primaryButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.playlistInput {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.03);
+
+  color: #edf1ff;
+  font-size: 13px;
+  line-height: 1;
+
+  outline: none;
+  transition:
+    border-color 0.16s ease,
+    box-shadow 0.16s ease,
+    background 0.16s ease;
+}
+
+.playlistInput::placeholder {
+  color: #7f8bb8;
+}
+
+.playlistInput:focus {
+  border-color: rgba(112, 154, 255, 0.34);
+  box-shadow: 0 0 0 3px rgba(98, 128, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}

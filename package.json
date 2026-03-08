@@ -3,10 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "electron/main.ts",
+  "main": "dist-electron/main.js",
   "scripts": {
-    "dev": "concurrently \"vite\" \"electron .\"",
-    "build": "tsc && vite build",
+    "dev:renderer": "vite",
+    "build:electron:main": "tsc -p tsconfig.electron-main.json",
+    "build:electron:preload": "tsc -p tsconfig.electron-preload.json",
+    "build:electron": "npm run build:electron:main && npm run build:electron:preload",
+    "watch:electron:main": "tsc -p tsconfig.electron-main.json --watch",
+    "watch:electron:preload": "tsc -p tsconfig.electron-preload.json --watch",
+    "dev": "npm run build:electron && concurrently \"vite\" \"npm run watch:electron:main\" \"npm run watch:electron:preload\" \"electron dist-electron/main.js\"",
+    "build": "npm run build:electron && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

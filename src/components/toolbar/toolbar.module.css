@@ -11,6 +11,9 @@
 
   background: transparent;
   column-gap: 8px;
+
+  -webkit-app-region: drag;
+  user-select: none;
 }
 
 .toolbar__left {
@@ -88,6 +91,8 @@
 
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease;
+
+  -webkit-app-region: no-drag;
 }
 
 .toolbar__btn:hover {
@@ -104,9 +109,11 @@
 .toolbar__trackViewport {
   width: 100%;
   height: 100%;
-
   position: relative;
   overflow: hidden;
+
+  display: flex;
+  align-items: center;
 
   mask-image: linear-gradient(
     to right,
@@ -146,14 +153,13 @@
   top: 50%;
 
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
   gap: 72px;
 
   min-width: max-content;
   will-change: transform;
 
-  animation: toolbar-marquee-ltr 14s linear infinite;
+  animation: toolbar-marquee-ltr 18s linear infinite;
 }
 
 .toolbar__track {
@@ -174,9 +180,10 @@
 
 @keyframes toolbar-marquee-ltr {
   0% {
-    transform: translateY(-50%) translateX(calc(-100% - 72px));
+    transform: translateY(-50%) translateX(-100%);
   }
+
   100% {
-    transform: translateY(-50%) translateX(0);
+    transform: translateY(-50%) translateX(100vw);
   }
 }
